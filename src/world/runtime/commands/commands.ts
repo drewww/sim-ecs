@@ -35,6 +35,10 @@ export class Commands implements ICommands {
         });
     }
 
+    addEntityToGroup(handle: TGroupHandle, entity: Readonly<IEntity>): void {
+        this.commands.push(() => { this.world.addEntityToGroup(handle, entity) });
+    }
+
     addResource<T extends object>(obj: TTypeProto<T> | T, ...args: ReadonlyArray<unknown>): T {
         let type: TTypeProto<T>;
         let instance: T;
@@ -61,6 +65,7 @@ export class Commands implements ICommands {
 
         return instance;
     }
+
 
     buildEntity(): CommandEntityBuilder {
         return new CommandEntityBuilder(this.world, this);

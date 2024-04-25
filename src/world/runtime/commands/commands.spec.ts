@@ -23,6 +23,13 @@ export interface ICommands {
     addEntity(entity: Readonly<IEntity>): void
 
     /**
+     * Add an entity to a group
+     * @param handle
+     * @param entity
+     */
+    addEntityToGroup(handle: TGroupHandle, entity: Readonly<IEntity>): void
+
+    /**
      * Add a resource to this world and returns the resource instance
      * @param type
      * @param args constructor parameters
